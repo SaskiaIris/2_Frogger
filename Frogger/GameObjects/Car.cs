@@ -24,8 +24,10 @@ namespace Frogger {
 			base.Update();
 			
 			position += velocity;
-			if(position.X > GameEnvironment.Screen.X) {
+			if(position.X > GameEnvironment.Screen.X && velocity.X > 0) {
 				position.X = -1 * texture.Width - 10;
+			} else if(position.X + texture.Width < 0 && velocity.X < 0) {
+				position.X = GameEnvironment.Screen.X + 10;
 			}
 		}
 	}
