@@ -45,6 +45,7 @@
     <Compile Include="GameManagement\GameEnvironment.cs" />
     <Compile Include="GameManagement\GameObject.cs" />
     <Compile Include="GameManagement\GameState.cs" />
+    <Compile Include="GameObjects\Car.cs" />
     <Compile Include="GameObjects\Frog.cs" />
     <Compile Include="GameStates\PlayingState.cs" />
     <Compile Include="Program.cs" />
