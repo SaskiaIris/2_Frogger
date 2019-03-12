@@ -18,8 +18,6 @@ class GameEnvironment : Game {
 	static protected List<GameState> gameStateList;
     static protected GameState currentGameState;
 
-	
-
 	public static KeyboardState KeyboardState {
         get {
 			return Keyboard.GetState();
