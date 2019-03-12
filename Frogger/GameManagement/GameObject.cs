@@ -6,32 +6,31 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-class GameObject
-{
+class GameObject {
     public Vector2 position;
     public Vector2 velocity;
     public Texture2D texture;
+	public int speed;
+	public bool thisFrameKeyDown, lastFrameKeyDown;
 
-    public GameObject(String assetName)
-    {
+    public GameObject(String assetName) {
         texture = GameEnvironment.ContentManager.Load<Texture2D>(assetName);
         Init();
     }
 
-    public virtual void Update() { }
+    public virtual void Update() {
+		lastFrameKeyDown = thisFrameKeyDown;
+	}
 
-    public virtual void Draw(SpriteBatch spriteBatch)
-    {
+    public virtual void Draw(SpriteBatch spriteBatch) {
         spriteBatch.Draw(texture, position, Color.White);
     }
 
-    public virtual void Init()
-    {
+    public virtual void Init() {
 
     }
 
-    public Boolean Overlaps(GameObject other)
-    {
+    public Boolean Overlaps(GameObject other) {
         float w0 = this.texture.Width,
             h0 = this.texture.Height,
             w1 = other.texture.Width,

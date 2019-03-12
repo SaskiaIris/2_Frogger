@@ -8,45 +8,49 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-class GameEnvironment : Game
-{
+class GameEnvironment : Game {
     protected GraphicsDeviceManager graphics;
     protected SpriteBatch spriteBatch;
     static protected ContentManager content;
     protected static Point screen;
     protected static Random random;
 
-    static protected List<GameState> gameStateList;
+	static protected List<GameState> gameStateList;
     static protected GameState currentGameState;
 
-    public static KeyboardState KeyboardState
-    {
-        get { return Keyboard.GetState(); }
+	
+
+	public static KeyboardState KeyboardState {
+        get {
+			return Keyboard.GetState();
+		}
     }
 
-    public static Point Screen
-    {
-        get { return screen; }
+	public static Point Screen {
+        get {
+			return screen;
+		}
     }
 
-    public static Random Random
-    {
-        get { return random; }
+    public static Random Random {
+        get {
+			return random;
+		}
     }
 
-    public static ContentManager ContentManager
-    {
-        get { return content; }
+    public static ContentManager ContentManager {
+        get {
+			return content;
+		}
     }
 
-    static public void SwitchTo(int gameStateIndex)
-    {
-        if (gameStateIndex >= 0 && gameStateIndex < gameStateList.Count)
-            currentGameState = gameStateList[gameStateIndex];
+    static public void SwitchTo(int gameStateIndex) {
+		if(gameStateIndex >= 0 && gameStateIndex < gameStateList.Count) {
+			currentGameState = gameStateList[gameStateIndex];
+		}
     }
 
-    public GameEnvironment()
-    {
+    public GameEnvironment() {
         graphics = new GraphicsDeviceManager(this);
         Content.RootDirectory = "Content";
         content = Content;
@@ -54,36 +58,33 @@ class GameEnvironment : Game
         random = new Random();
     }
 
-    public void ApplyResolutionSettings()
-    {
+    public void ApplyResolutionSettings() {
         graphics.PreferredBackBufferWidth = screen.X;
         graphics.PreferredBackBufferHeight = screen.Y;
         graphics.ApplyChanges();
     }
 
-    protected override void LoadContent()
-    {
+    protected override void LoadContent() {
         spriteBatch = new SpriteBatch(GraphicsDevice);
     }
 
-    protected override void Draw(GameTime gameTime)
-    {
-        spriteBatch.Begin();
+	protected override void Draw(GameTime gameTime) {
+		spriteBatch.Begin();
 
-        if (currentGameState != null)
-            currentGameState.Draw(spriteBatch);
+		if(currentGameState != null) {
+			currentGameState.Draw(spriteBatch);
+		}
 
         spriteBatch.End();
 
         base.Draw(gameTime);
     }
 
-    protected override void Update(GameTime gameTime)
-    {
-        if (currentGameState != null)
-            currentGameState.Update(gameTime);
+	protected override void Update(GameTime gameTime) {
+		if(currentGameState != null) {
+			currentGameState.Update(gameTime);
+		}
 
         base.Update(gameTime);
     }
 }
-
