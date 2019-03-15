@@ -22,13 +22,11 @@ namespace Frogger {
 		public override void Update(GameTime gameTime) {
 			base.Update(gameTime);
 
-			foreach(GameObject gameObject in gameObjectList) {
-				if(gameObject is Frog) {
-					foreach(GameObject gameObject2 in gameObjectList) {
-						if(gameObject2 is Car) {
-							if(gameObject.Overlaps(gameObject2)){
-								gameObject.Init();
-							}
+			foreach(GameObject frog in gameObjectList) {
+				foreach(GameObject car in gameObjectList) {
+					if(frog is Frog && car is Car) {
+						if(frog.Overlaps(car)) {
+							frog.Init();
 						}
 					}
 				}

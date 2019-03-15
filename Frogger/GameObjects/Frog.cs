@@ -18,7 +18,7 @@ namespace Frogger {
             base.Init();
 			speed = 40;
             position.X = GameEnvironment.Screen.X/2 - this.texture.Width / 2;
-            position.Y = GameEnvironment.Screen.Y - this.texture.Height;
+            position.Y = GameEnvironment.Screen.Y - this.texture.Height-10;
 			velocity.X = velocity.Y = 0;
         }
 
@@ -49,7 +49,7 @@ namespace Frogger {
 
 			// "clamp" the position to make sure it never goes out of screen bounds           
 			position.X = MathHelper.Clamp(position.X, 0, GameEnvironment.Screen.X - texture.Width);
-			position.Y = MathHelper.Clamp(position.Y, 0, GameEnvironment.Screen.Y - texture.Height);
+			position.Y = MathHelper.Clamp(position.Y, 110, GameEnvironment.Screen.Y - texture.Height-10);
 		}
 	}
 }
