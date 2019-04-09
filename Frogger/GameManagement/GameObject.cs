@@ -11,6 +11,7 @@ class GameObject {
     public Vector2 velocity;
     public Texture2D texture;
 	public int speed;
+	public int lives;
 	public bool thisFrameKeyDown, lastFrameKeyDown;
 
     public GameObject(String assetName) {

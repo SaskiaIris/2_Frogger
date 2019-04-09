@@ -11,7 +11,7 @@ using Microsoft.Xna.Framework.Input;
 namespace Frogger {
     class Frog : GameObject {
         public Frog() : base("spr_frog") {
-
+			lives = 3;
         }
 
         public override void Init() {
@@ -49,7 +49,13 @@ namespace Frogger {
 
 			// "clamp" the position to make sure it never goes out of screen bounds           
 			position.X = MathHelper.Clamp(position.X, 0, GameEnvironment.Screen.X - texture.Width);
-			position.Y = MathHelper.Clamp(position.Y, 110, GameEnvironment.Screen.Y - texture.Height-10);
+			position.Y = MathHelper.Clamp(position.Y, 30, GameEnvironment.Screen.Y - texture.Height-10);
+
+			if(lives < 1) {
+				Init();
+				this.lives = 3;
+				GameEnvironment.SwitchTo(3);
+			}
 		}
 	}
 }

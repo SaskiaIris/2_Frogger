@@ -46,8 +46,12 @@
     <Compile Include="GameManagement\GameObject.cs" />
     <Compile Include="GameManagement\GameState.cs" />
     <Compile Include="GameObjects\Car.cs" />
+    <Compile Include="GameObjects\Fly.cs" />
     <Compile Include="GameObjects\Frog.cs" />
+    <Compile Include="GameStates\LosingState.cs" />
     <Compile Include="GameStates\PlayingState.cs" />
+    <Compile Include="GameStates\StartingState.cs" />
+    <Compile Include="GameStates\WinningState.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

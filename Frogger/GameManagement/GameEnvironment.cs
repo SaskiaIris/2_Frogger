@@ -16,7 +16,11 @@ class GameEnvironment : Game {
     protected static Random random;
 
 	static protected List<GameState> gameStateList;
-    static protected GameState currentGameState;
+	static protected GameState startState;
+	static protected GameState playState;
+	static protected GameState winState;
+	static protected GameState loseState;
+	static protected GameState currentGameState;
 
 	public static KeyboardState KeyboardState {
         get {

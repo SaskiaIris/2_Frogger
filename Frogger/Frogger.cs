@@ -16,9 +16,12 @@ namespace Frogger {
             screen = new Point(520, 300);
             ApplyResolutionSettings();
 
-            gameStateList.Add(new PlayingState());
+			gameStateList.Add(startState = new StartingState()); //0
+			gameStateList.Add(playState = new PlayingState()); //1
+			gameStateList.Add(winState = new WinningState()); //2
+			gameStateList.Add(loseState = new LosingState()); //3
+			
             GameEnvironment.SwitchTo(0);
-
         }
 
 		protected override void Update(GameTime gameTime) {

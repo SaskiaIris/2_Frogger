@@ -10,6 +10,7 @@ namespace Frogger {
 		public PlayingState() {
 			gameObjectList.Add(new GameObject("spr_background"));
 			gameObjectList.Add(new Frog());
+			gameObjectList.Add(new Fly());
 			//gameObjectList.Add(new Car("spr_dozer", new Vector2(3, 150), new Vector2(1, 0)));
 
 			for(int i = 0; i < 3; i++) {
@@ -22,11 +23,16 @@ namespace Frogger {
 		public override void Update(GameTime gameTime) {
 			base.Update(gameTime);
 
-			foreach(GameObject frog in gameObjectList) {
-				foreach(GameObject car in gameObjectList) {
-					if(frog is Frog && car is Car) {
-						if(frog.Overlaps(car)) {
-							frog.Init();
+			foreach(GameObject objectOne in gameObjectList) {
+				foreach(GameObject objectTwo in gameObjectList) {
+					if(objectOne.Overlaps(objectTwo)) {
+						if(objectOne is Frog && objectTwo is Car) {
+							objectOne.Init();
+							objectOne.lives--;
+						} else if(objectOne is Frog && objectTwo is Fly) {
+							GameEnvironment.SwitchTo(2);
+							objectOne.Init();
+							objectOne.lives = 3;
 						}
 					}
 				}
