@@ -14,7 +14,8 @@ namespace Frogger {
 		public override void Update(GameTime gameTime) {
 			base.Update(gameTime);
 
-			if(GameEnvironment.KeyboardState.GetPressedKeys().Count() > 0) {
+			if(GameEnvironment.KeyboardState.GetPressedKeys().Count() > 0 &&
+				GameEnvironment.previousState.GetPressedKeys().Count() == 0) {
 				GameEnvironment.SwitchTo(0);
 			}
 		}

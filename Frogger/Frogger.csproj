@@ -48,6 +48,7 @@
     <Compile Include="GameObjects\Car.cs" />
     <Compile Include="GameObjects\Fly.cs" />
     <Compile Include="GameObjects\Frog.cs" />
+    <Compile Include="GameObjects\Life.cs" />
     <Compile Include="GameStates\LosingState.cs" />
     <Compile Include="GameStates\PlayingState.cs" />
     <Compile Include="GameStates\StartingState.cs" />

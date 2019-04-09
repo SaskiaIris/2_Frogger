@@ -22,6 +22,9 @@ class GameEnvironment : Game {
 	static protected GameState loseState;
 	static protected GameState currentGameState;
 
+	static public KeyboardState previousState;
+
+
 	public static KeyboardState KeyboardState {
         get {
 			return Keyboard.GetState();
@@ -58,6 +61,7 @@ class GameEnvironment : Game {
         content = Content;
         gameStateList = new List<GameState>();
         random = new Random();
+		previousState = new KeyboardState();
     }
 
     public void ApplyResolutionSettings() {
@@ -80,6 +84,7 @@ class GameEnvironment : Game {
         spriteBatch.End();
 
         base.Draw(gameTime);
+		previousState = KeyboardState;
     }
 
 	protected override void Update(GameTime gameTime) {
